@@ -31,7 +31,7 @@ class MainContainer extends Component {
   }
 
   purchaseOrSellStock = (id, plusMinus) => {
-    let stockInPortfolio = this.state.stocks.find(stock => stock.id === id)
+    let stockInPortfolio = { ...this.state.stocks.find(stock => stock.id === id) }
     plusMinus === "+" ? stockInPortfolio.count += 1 : stockInPortfolio.count -= 1
     this.setState({
       portfolio: this.state.stocks.map(stock => stock.id === stockInPortfolio.id ? stockInPortfolio : stock)
